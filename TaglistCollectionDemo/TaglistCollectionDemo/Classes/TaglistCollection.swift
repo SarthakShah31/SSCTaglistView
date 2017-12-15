@@ -171,8 +171,6 @@ protocol TagViewDelegate: class {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -235,25 +233,24 @@ protocol TagViewDelegate: class {
         self.aryTaglist.append(tagName)
         self.arySelectedTag.append(false)
         self.collectionView.reloadData()
-
     }
     
     func appendTag (tagName : String ,atIndex : Int) {
         self.aryTaglist.insert(tagName, at: atIndex)
         self.arySelectedTag.insert(false, at: atIndex)
         self.collectionView.reloadData()
-        
     }
+    
     func removeAllTags () {
         self.aryTaglist.removeAll()
         self.arySelectedTag.removeAll()
         self.collectionView.reloadData()
     }
+    
     func removeTagsAtIndex (index : Int) {
         self.aryTaglist.remove(at: index)
         self.arySelectedTag.remove(at: index)
         self.collectionView.reloadData()
-        
     }
     
     
@@ -347,11 +344,8 @@ extension TaglistCollection : UICollectionViewDataSource ,UICollectionViewDelega
 
 extension TaglistCollection : TagColllectionCellDelegate {
     func removeTagAt(indexPath: IndexPath) {
-        
-        
-        self.removeTagsAtIndex(index: indexPath.item)
-        
         self.delegate?.didRemoveTag(indexPath)
+        self.removeTagsAtIndex(index: indexPath.item)
     }
 }
 

@@ -92,7 +92,6 @@ extension ViewController : TagViewDelegate {
 
 extension ViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         return textField.resignFirstResponder()
     }
 }
